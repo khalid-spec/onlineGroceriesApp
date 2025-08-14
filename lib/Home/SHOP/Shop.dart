@@ -1,32 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onlinegroceriesapp/Controller/Shop_controller.dart';
+import 'package:onlinegroceriesapp/Custom/CustomBannar.dart';
 import 'package:onlinegroceriesapp/Custom/CustomText.dart';
+import 'package:onlinegroceriesapp/Custom/Custom_TextButton.dart';
+import 'package:onlinegroceriesapp/Home/SHOP/Product-Detail.dart';
 import 'package:onlinegroceriesapp/Model/Prodact_Model.dart';
 import 'package:onlinegroceriesapp/theme/Image.dart';
 
 class Shop extends StatelessWidget {
-  const Shop({super.key});
+  final int id;
+  Shop({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(ShopController());
+
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Banner
-          Container(
+          CustomBaannar(
+            images: [
+              Assets.assetsImageBanner,
+              Assets.Apple,
+            ],
             height: 120,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              image: const DecorationImage(
-                image: AssetImage(Assets.assetsImageBanner ),
-                fit: BoxFit.cover,
-              ),
-            ),
+            secoonds: 4,
           ),
+          // Container(
+          //   height: 120,
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(12),
+          //     image: const DecorationImage(
+          //       image:
+          //       fit: BoxFit.cover,
+          //     ),
+          //   ),
+          // ),
           const SizedBox(height: 20),
 
           // Exclusive Offer
@@ -81,9 +94,18 @@ class Shop extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomText(text: title,size: 24,boold: FontWeight.bold,),
-        CustomText(text: 'See    all',size: 16,color: Colors.green,boold: FontWeight.bold,),
-        
+        CustomText(
+          text: title,
+          size: 24,
+          boold: FontWeight.bold,
+        ),
+        CustomTextButtom(
+            text: 'See all',
+            color: Colors.green,
+            size: 16,
+            onpressed: () {
+              print('1');
+            })
       ],
     );
   }
@@ -105,7 +127,11 @@ class Shop extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(product.image, height: 62,width: 103,),
+          Image.asset(
+            product.image,
+            height: 62,
+            width: 103,
+          ),
           const SizedBox(height: 8),
           CustomText(
             text: product.name,
@@ -120,12 +146,22 @@ class Shop extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-             CustomText(text: product.price,size: 18,boold: FontWeight.bold,),
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.green,
-                child: const Icon(Icons.add, size: 17, color: Colors.white),
+              CustomText(
+                text: product.price,
+                size: 18,
+                boold: FontWeight.bold,
               ),
+              FloatingActionButton(
+                heroTag: null,
+                onPressed: () {
+                  Get.to(ProductDetails(id: product.id));
+                  print('add');
+                },
+                backgroundColor: Colors.green,
+                shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8))),
+                child: const Icon(Icons.add, size: 20, color: Colors.white),
+              )
             ],
           ),
         ],

@@ -16,7 +16,7 @@ class GroceryHomePage extends StatelessWidget {
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
-                pinned: true,
+                pinned: false,
                 floating: true,
                 snap: true,
                 expandedHeight: 160.0,

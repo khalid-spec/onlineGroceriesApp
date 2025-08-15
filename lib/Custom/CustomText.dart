@@ -5,8 +5,9 @@ class CustomText extends StatelessWidget {
   final Color? color;
   final double? size;
   final  boold;
+  final Color? backgroundColor;
   
-  const CustomText({super.key, required this.text, this.color, this.size,  this.boold});
+  const CustomText({super.key, required this.text, this.color, this.size,  this.boold, this.backgroundColor});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,8 @@ class CustomText extends StatelessWidget {
       style: TextStyle(
         color: color==null? Colors.black :color,
         fontSize: size==null?18:size,
-        fontWeight: boold,
+        fontWeight: boold, 
+        backgroundColor:backgroundColor, 
       ),
     );
   }

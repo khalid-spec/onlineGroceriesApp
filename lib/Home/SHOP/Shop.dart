@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:onlinegroceriesapp/Controller/Card_Controller.dart';
 import 'package:onlinegroceriesapp/Controller/Shop_controller.dart';
 import 'package:onlinegroceriesapp/Custom/CustomBannar.dart';
 import 'package:onlinegroceriesapp/Custom/CustomText.dart';
@@ -13,7 +14,8 @@ class Shop extends StatelessWidget {
   Shop({super.key, required this.id});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
+     final cartController = Get.put(CartController());
     final controller = Get.put(ShopController());
 
     return SingleChildScrollView(
@@ -24,8 +26,8 @@ class Shop extends StatelessWidget {
           // Banner
           CustomBaannar(
             images: [
-              Assets.assetsImageBanner,
-              Assets.Apple,
+              Assets.imageBanner,
+              Assets.imageApple,
             ],
             height: 120,
             secoonds: 4,
@@ -147,7 +149,7 @@ class Shop extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomText(
-                text: product.price,
+                text: product.price.toString(),
                 size: 18,
                 boold: FontWeight.bold,
               ),

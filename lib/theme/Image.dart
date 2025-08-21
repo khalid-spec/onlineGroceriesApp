@@ -2,44 +2,56 @@
 class Assets {
   Assets._();
   
-  /// Assets for assetsImage2771 1
+  /// Assets for image2771 1
   /// asset/image/2771 1.png
-  static const String assetsImage2771  = "asset/image/2771 1.png";
+  static const String image2771  = "asset/image/2771 1.png";
 
-  /// Assets for assetsImageApple
+  /// Assets for imageApple
   /// asset/image/apple.png
-  static const String Apple = "asset/image/apple.png";
+  static const String imageApple = "asset/image/apple.png";
 
-  /// Assets for assetsImageBanner
+  /// Assets for imageBanner
   /// asset/image/banner.png
-  static const String assetsImageBanner = "asset/image/banner.png";
+  static const String imageBanner = "asset/image/banner.png";
 
-  /// Assets for assetsImageCacacola
+  /// Assets for imageBeverages
+  /// asset/image/Beverages.svg
+  static const String imageBeverages = "asset/image/Beverages.svg";
+
+  /// Assets for imageCacacola
   /// asset/image/cacacola.png
-  static const String Cacacola = "asset/image/cacacola.png";
+  static const String imageCacacola = "asset/image/cacacola.png";
 
-  /// Assets for assetsImageEgg
+  /// Assets for imageEgg
   /// asset/image/Egg.png
-  static const String Egg = "asset/image/Egg.png";
+  static const String imageEgg = "asset/image/Egg.png";
 
-  /// Assets for assetsImageJuice
+  /// Assets for imageJuice
   /// asset/image/Juice.png
-  static const String Juice = "asset/image/Juice.png";
+  static const String imageJuice = "asset/image/Juice.png";
 
-  /// Assets for assetsImageMask Group
+  /// Assets for imageMask Group
   /// asset/image/Mask Group.png
-  static const String assetsImageMask  = "asset/image/Mask Group.png";
+  static const String imageMaskGroup = "asset/image/Mask Group.png";
 
-  /// Assets for assetsImageNaviagtion
+  /// Assets for imageNaviagtion
   /// asset/image/Naviagtion.png
-  static const String assetsImageNaviagtion = "asset/image/Naviagtion.png";
+  static const String imageNaviagtion = "asset/image/Naviagtion.png";
 
-  /// Assets for assetsImageSpagty
+  /// Assets for imageOil&chee
+  /// asset/image/Oil&chee.svg
+  static const String imageOil_chee = "asset/image/Oil&chee.svg";
+
+  /// Assets for imageSpagty
   /// asset/image/spagty.png
-  static const String Spagty = "asset/image/spagty.png";
+  static const String imageSpagty = "asset/image/spagty.png";
 
-  /// Assets for assetsImageTreeTopJuiceAppleGrape64oz 1
+  /// Assets for imageTreeTopJuiceAppleGrape64oz 1
   /// asset/image/tree-top-juice-apple-grape-64oz 1.png
-  static const String assetsImageTreeTopJuiceAppleGrape64oz  = "asset/image/tree-top-juice-apple-grape-64oz 1.png";
+  static const String imageTreeTopJuiceAppleGrape64oz  = "asset/image/tree-top-juice-apple-grape-64oz 1.png";
+
+  /// Assets for imageVagetable&
+  /// asset/image/Vagetable&.svg
+  static const String imageVagetable = "asset/image/Vagetable&.svg";
 }
 

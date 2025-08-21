@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:onlinegroceriesapp/Controller/Card_Controller.dart';
 import 'package:onlinegroceriesapp/Controller/Shop_controller.dart';
 import 'package:onlinegroceriesapp/Custom/CustomText.dart';
 import 'package:onlinegroceriesapp/Custom/Custom_IconButtom.dart';
+import 'package:onlinegroceriesapp/Home/SHOP/Shop.dart';
+import 'package:onlinegroceriesapp/Model/Prodact_Model.dart';
 
 class ProductDetails extends StatelessWidget {
   final int id;
@@ -10,6 +13,8 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //  final cartController = Get.find<CartController>(); 
+      final cartController = Get.put(CartController());
     final controller = Get.find<ShopController>();
     final product = controller.getProductById(id);
 
@@ -27,7 +32,8 @@ class ProductDetails extends StatelessWidget {
         ],
         elevation: 0,
       ),
-      body: SingleChildScrollView(
+      body:  GetBuilder<CartController>(builder: (controller) {
+    return  SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -83,9 +89,11 @@ class ProductDetails extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildCounter(),
+                  _buildCounter(product
+                  
+                  ),
                   CustomText(
-                    text: "${product.price}",
+                    text:'\$${product.price}' ,
                     color: Colors.green,
                     boold: FontWeight.bold,
                     size: 24,
@@ -136,22 +144,40 @@ class ProductDetails extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      );
+  },),
+      
     );
   }
 }
 
-Widget _buildCounter() {
-  return
-   Row(
+Widget _buildCounter( ProducatModel product) {
+  final cartController = Get.find<CartController>();
+  //  final cartController = Get.put(CartController());
+  return GetBuilder<ShopController>(builder: (controller) {
+    
+    // final cartItem = cartController.cartItems.firstWhere(
+    //   (item) => item.id == product.id,
+    //   orElse: () => ProducatModel(
+    //     id: product.id,
+    //     name: product.name,
+    //     description: product.description,
+    //     price: product.price,
+    //     image: product.image,
+    //     quantity: 0,
+    //   ),
+    // );
+
+    // final quantity = cartItem.quantity ?? 0;
+    return  Row(
     children: [
        
           IconButton(
             icon: const Icon(Icons.remove),
-            enableFeedback: false,
+            enableFeedback: true,
             color: Colors.green,
-            autofocus: true,
-            onPressed: () {},
+            autofocus: false,
+            onPressed: ()=> controller.decrease(),
           ),
   
       Container(
@@ -162,13 +188,17 @@ Widget _buildCounter() {
       ),
       
        
-           child: CustomText(text: '1',size: 20,backgroundColor:Colors.grey.shade100 ),
+           child: CustomText(text:controller.quantity.toString(),size: 20,backgroundColor:Colors.grey.shade100 ),
           ),
-          CustomIconButom(icons: Icons.add, color: Colors.green, onPressed: () {})
+          CustomIconButom(icons: Icons.add, color: Colors.green,
+           onPressed:()=>  controller.increase() )
         ],
       
        
    );
+  },);
+  
+ 
   
 }
 

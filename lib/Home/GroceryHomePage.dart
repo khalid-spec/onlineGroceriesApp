@@ -16,10 +16,10 @@ class GroceryHomePage extends StatelessWidget {
           body: CustomScrollView(
             slivers: [
               SliverAppBar(
-                pinned: false,
+                pinned: true,
                 floating: true,
                 snap: true,
-                expandedHeight: 160.0,
+                expandedHeight: 115.0,
                 backgroundColor: Colors.white,
                 //  const Color.fromARGB(255, 141, 110, 110),
                 elevation: 0,
@@ -28,6 +28,7 @@ class GroceryHomePage extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(top: 60, left: 16, right: 16),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                       const  Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +40,7 @@ class GroceryHomePage extends StatelessWidget {
                                 boold: FontWeight.bold),
                           ],
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 10),
                         TextField(
                           decoration: InputDecoration(
                             hintText: 'Search Store',

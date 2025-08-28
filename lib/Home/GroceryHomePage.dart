@@ -19,7 +19,7 @@ class GroceryHomePage extends StatelessWidget {
                 pinned: true,
                 floating: true,
                 snap: true,
-                expandedHeight: 115.0,
+                expandedHeight: 140.0,
                 backgroundColor: Colors.white,
                 //  const Color.fromARGB(255, 141, 110, 110),
                 elevation: 0,

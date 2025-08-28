@@ -1,46 +1,46 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:onlinegroceriesapp/Model/Prodact_Model.dart';
 import 'package:onlinegroceriesapp/theme/Image.dart';
 
 class ShopController extends GetxController {
   var quantity=1;
-  List<ProducatModel> exclusiveOffers = [
-    ProducatModel(
-      id: 1,
-      name: 'Apple',
-      image: Assets.imageApple,
-      price: 5.99,
-      description: '1kg, Priceg',
-    ),
-    ProducatModel(
-      id: 2,
-      name: 'Spagty',
-      image: Assets.imageSpagty,
-      price: 50,
-      description: '12',
-    ),
-  ];
-  List<ProducatModel> bestSelling = [
-    ProducatModel(
-      id: 3,
-      name: 'CacaCola',
-      image: Assets.imageCacacola,
-      price: 50,
-      description: '12',
-    ),
-    ProducatModel(
-      id: 4,
-      name: 'Juice',
-      image: Assets.imageJuice,
-      price: 50,
-      description: '12',
-    ),
-  ];
+  List<ProducatModel>product=[];
 
-  ProducatModel getProductById(int id) {
-    return [...exclusiveOffers, ...bestSelling]
-        .firstWhere((item) => item.id == id);
+@override
+void onInit() {
+   
+    super.onInit();
+    loadProducts();
+
   }
+    
+ Future<void> loadProducts() async {
+    final  response = await rootBundle.loadString('asset/data/product.json');
+    final data = json.decode(response) as List;
+print(response);
+    product = data.map((e) => ProducatModel.fromJson(e)).toList();
+print('11111111111111111111111111111');
+print(data);
+  print("📦 Loaded Products: ${product.length}");
+
+    
+
+
+    update();
+  }
+   List<ProducatModel> getExclusive( ) =>
+      product.where((p) => p.category.contains("exclusive") ).toList();
+      
+
+  List<ProducatModel> getBestSelling() =>
+      // ignore: unrelated_type_equality_checks
+      product.where((p) => p.category.contains("bestSelling")).toList();
+
+  List<ProducatModel> getGroceries() =>
+      product.where((p) => p.category.contains("groceries")).toList();
   
 
   void increase(){

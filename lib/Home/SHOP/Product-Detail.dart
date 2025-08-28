@@ -4,19 +4,18 @@ import 'package:onlinegroceriesapp/Controller/Card_Controller.dart';
 import 'package:onlinegroceriesapp/Controller/Shop_controller.dart';
 import 'package:onlinegroceriesapp/Custom/CustomText.dart';
 import 'package:onlinegroceriesapp/Custom/Custom_IconButtom.dart';
-import 'package:onlinegroceriesapp/Home/SHOP/Shop.dart';
 import 'package:onlinegroceriesapp/Model/Prodact_Model.dart';
 
 class ProductDetails extends StatelessWidget {
-  final int id;
-  const ProductDetails({super.key, required this.id});
+  final ProducatModel? product;
+  const ProductDetails({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
     //  final cartController = Get.find<CartController>(); 
-      final cartController = Get.put(CartController());
-    final controller = Get.find<ShopController>();
-    final product = controller.getProductById(id);
+      // final cartController = Get.put(CartController());
+    // final controller = Get.find<ShopController>();
+    // final product = controller.product;
 
     return Scaffold(
       appBar: AppBar(
@@ -49,7 +48,7 @@ class ProductDetails extends StatelessWidget {
                       bottomLeft: Radius.circular(50)),
                   image: DecorationImage(
                       image: AssetImage(
-                        product.image,
+                        product!.image
                       ),
                       fit: BoxFit.contain)),
               //  child: Image.asset(
@@ -67,9 +66,9 @@ class ProductDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomText(
-                          text: product.name, boold: FontWeight.bold, size: 25),
+                          text: product!.name, boold: FontWeight.bold, size: 25),
                       CustomText(
-                        text: product.description,
+                        text: product!.description,
                         size: 15,
                       )
                     ],
@@ -89,11 +88,11 @@ class ProductDetails extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildCounter(product
+                  _buildCounter(product!
                   
                   ),
                   CustomText(
-                    text:'\$${product.price}' ,
+                    text:'\$${product!.price}' ,
                     color: Colors.green,
                     boold: FontWeight.bold,
                     size: 24,

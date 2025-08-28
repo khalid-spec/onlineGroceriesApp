@@ -1,0 +1,38 @@
+[
+{
+     "id": 1,
+      "name": "Apple",
+      "image": "asset/image/apple.png",
+      "price": 5.99,
+      "description": "1kg, Priceg",
+      "category":["Fresh Fruits & Vegetable", "exclusive", "bestSelling"]
+},
+{
+        "id": 2,
+      "name": "Spagty",
+      "image": "asset/image/spagty.png",
+      "price":50,
+      "description": "12",
+      "category": ["Beverages"]
+
+},
+{
+        "id":3 ,
+      "name": "CacaCola",
+      "image":"asset/image/cacacola.png",
+      "price":50,
+      "description": "12",
+      "category": ["Beverages","bestSelling"]
+
+},
+{
+        "id":4 ,
+      "name": "Juice",
+      "image": "asset/image/Juice.png" ,
+      "price":50,
+      "description": "12",
+      "category": ["Beverages","exclusive"]
+
+}
+
+]
